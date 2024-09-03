@@ -1,26 +1,67 @@
-.Navbar{
-    display: flex;
-    justify-content: space-between;
-    background-color: chocolate;
-    align-items: center;
-    padding: 10px 20px;
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: chocolate;
+  align-items: center;
+  padding: 10px 20px;
 }
 
-.Navbar-logo{
-    font-size: 20px;
-    color: beige;
-    font-weight: bold;
+.Navbar-logo {
+  font-size: 20px;
+  color: beige;
+  font-weight: bold;
 }
 
-.Navbar-links ul{
-    list-style: none;
+.Navbar-links ul {
+  list-style: none;
 }
+
 .Navbar-links li {
-    display: inline-block;
-    margin-right: 20px;
-  }
+  display: inline-block;
+  margin-right: 20px;
+}
 
-.Navbar-links a {
-    text-decoration: none;
-    color: #fff;
-  }
+.link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.active {
+  color: #9e0606;
+  font-weight: bolder;
+}
+
+
+
+.dark-mode .Navbar {
+  background-color: #333;
+}
+
+.dark-mode .Navbar-logo {
+  color: #e0e0e0;
+}
+
+.dark-mode .link {
+  color: #bbb;
+}
+
+.dark-mode .active {
+  color: #ff6600;
+}
+
+
+
+.toggle-theme-btn {
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dark-mode .toggle-theme-btn {
+  border-color: #ff6600;
+  color: #ff6600;
+}

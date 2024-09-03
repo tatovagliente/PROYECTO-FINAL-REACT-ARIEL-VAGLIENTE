@@ -1,34 +1,39 @@
+import { useContext } from 'react';
 import CartWidget from "../CartWidget/CartWidget";
-import "./Navbar.css"
+import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
+import ThemeContext from "../../context/ThemeContext/ThemeContext";
+import ChildComponent from "../ChildComponent/ChildComponent"; // Importa el ChildComponent
 
 const Navbar = () => {
-  return (
-    <nav className="Navbar">
+    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
-      <div className="Navbar-logo">
-        <Link to="/">LOGO CERCENASCO</Link>
-      </div>
+    return (
+        <nav className={`Navbar ${isDarkMode ? 'dark-mode' : ''}`}>
+            <div className="Navbar-logo">
+                <Link to="/">LOGO CERCENASCO</Link>
+            </div>
 
-      <div className="Navbar-links">
-        <ul>
-        
-          <li>
-          <Link to="/categoria/Remeras">REMERAS</Link>
-            </li>
-          <li>
-          <Link to="/categoria/Jeans">JEANS</Link>
-            </li>
-          <li>
-            <Link to="/categoria/Camperas">CAMPERAS</Link>
-            </li>
-        </ul>
-      </div>
-      
-    <CartWidget/>
+            <div className="Navbar-links">
+                <ul>
+                    <li>
+                        <NavLink to="/categoria/Remeras" className="link" activeclassname="active">REMERAS</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/categoria/Jeans" className="link" activeclassname="active">JEANS</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/categoria/Camperas" className="link" activeclassname="active">CAMPERAS</NavLink>
+                    </li>
+                </ul>
+            </div>
 
-    </nav>
-  )
+            <ChildComponent />
+
+            <CartWidget />
+
+        </nav>
+    );
 }
 
 export default Navbar;

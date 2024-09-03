@@ -1,0 +1,16 @@
+
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+body {
+    background-color: white;
+    color: black;
+}
+
+
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}

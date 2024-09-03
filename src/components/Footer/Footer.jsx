@@ -1,7 +1,12 @@
+import './Footer.css';
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <div className="footer">
+
+      <h3>@CERCENASCO Todos los Derechos Reservados por Copyright</h3>
+    
+    </div>
   )
 }
 
