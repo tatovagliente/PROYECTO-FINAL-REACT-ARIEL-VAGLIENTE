@@ -48,11 +48,6 @@ export const  CartProvider = ({children}) => {
     setCart(cart.filter((item) => item.product.id !== productId));
   };
 
-  // COMPRAR
-  const buy = () => {
-    console.log("Compra realizada con éxito");
-    clearCart();
-  };
   
     return (
         <CartContext.Provider value={{
@@ -63,7 +58,6 @@ export const  CartProvider = ({children}) => {
             getTotal,
             getTotalProducts,
             removeItem,
-            buy,
         }}>
             {children}
         </CartContext.Provider>

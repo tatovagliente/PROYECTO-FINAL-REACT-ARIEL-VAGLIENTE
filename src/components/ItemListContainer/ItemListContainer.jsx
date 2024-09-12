@@ -3,6 +3,8 @@ import {useState, useEffect} from "react"
 import ItemList from '../ItemList/ItemList'
 import { useParams } from "react-router-dom"
 import Spinner from "../Spinner/Spinner"
+import { collection,getDocs, getFirestore,where, query } from "firebase/firestore"
+
 
 const ItemListContainer = ({greeting}) => {
 
@@ -12,22 +14,22 @@ const ItemListContainer = ({greeting}) => {
   const {categoriaId} = useParams();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('/products.json')
-        const data = await response.json()
+    setLoading(true);
+    const db = getFirestore();
 
-        const filteredProducts = categoriaId ? data.filter ((p) => p.categoria === categoriaId) : data;
-        setProducts(filteredProducts)
+    const misProductos = categoriaId ? query(collection(db,"item"), where("categoria","==",categoriaId)) : collection(db, "item");
 
-      } catch (error) {
-        console.log(error)
-      }finally{
-        setLoading(false)
-      }
-    }
-  
-    fetchData()
+    getDocs(misProductos)
+    .then((res) => {
+      const nuevosProductos = res.docs.map((doc) => {
+        const data = doc.data();
+        return {id : doc.id, ...data};
+        });
+        setProducts(nuevosProductos);
+      })
+      .catch((error) => console.log("Error buscando los productos", error))
+        .finally (() => setLoading(false));
+
   }, [categoriaId])
 
 return (
