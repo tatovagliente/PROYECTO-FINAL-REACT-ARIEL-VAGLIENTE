@@ -6,10 +6,9 @@
   padding: 10px 20px;
 }
 
-.Navbar-logo {
-  font-size: 20px;
-  color: beige;
-  font-weight: bold;
+.logo-image {
+  width: 110px; 
+  height: auto;  
 }
 
 .Navbar-links ul {

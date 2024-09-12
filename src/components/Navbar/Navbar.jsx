@@ -11,7 +11,9 @@ const Navbar = () => {
     return (
         <nav className={`Navbar ${isDarkMode ? 'dark-mode' : ''}`}>
             <div className="Navbar-logo">
-                <Link to="/">LOGO CERCENASCO</Link>
+            <Link to="/">
+                    <img src="/assets/logo/Logo.jpg" alt="Logo Cercenasco" className="logo-image" />
+                </Link>
             </div>
 
             <div className="Navbar-links">
