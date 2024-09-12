@@ -16,16 +16,16 @@ const ItemDetail = ({product}) => {
   };
 
   return (
-    <div>
+    <div className="item-detail">
       <h2>{product.nombre}</h2>
       <img src={product.imagen} alt={product.nombre}/>
       <p>{product.detalle}</p>
       <p>CATEGORIA: {product.categoria}</p>
-      <p>PRECIO: ${product.precio}</p>
+      <p className="price">PRECIO: ${product.precio}</p>
       {product.stock === 0 ? (
         <p>STOCK: Agotado</p>
       ) : (
-        <p>STOCK: {product.stock}</p>
+        <p className="stock">STOCK: {product.stock}</p>
       )}
 
       {product.stock === 0 ? (

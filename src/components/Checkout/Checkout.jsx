@@ -86,6 +86,11 @@ const Checkout = () => {
       {cart.map((product, index) => (
         <div key={product.product.id || index}>
           <p>{product.product.nombre}</p>
+          <img 
+            src={product.product.imagen} 
+            alt={product.product.nombre}   
+            style={{ width: '100px', height: 'auto' }}
+          />
           <p>{product.product.precio}</p>
           <hr />
         </div>

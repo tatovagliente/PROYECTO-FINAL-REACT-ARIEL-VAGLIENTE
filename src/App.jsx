@@ -12,6 +12,7 @@ import Cart from './components/Cart/Cart';
 import {db} from "./main";
 import {collection, getDocs, getFirestore } from 'firebase/firestore';
 import Checkout from './components/Checkout/Checkout';
+import { Toaster } from 'sonner';
 
 const App = () => {
 
@@ -27,7 +28,7 @@ const App = () => {
   });
 
   }, []);
-console.log(products);
+
 
 
   return (
@@ -35,6 +36,7 @@ console.log(products);
     <ThemeProvider>
       <CartProvider>
         <BrowserRouter>
+        <Toaster position="bottom-center" richColors />
           <Navbar />
         <Routes>
           <Route path='/' element={<ItemListContainer />} />
