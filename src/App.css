@@ -1,16 +1,37 @@
-
 body {
     transition: background-color 0.3s, color 0.3s;
-}
-
-
-body {
-    background-color: white;
+    background-color: rgb(235, 165, 133);
     color: black;
 }
-
 
 .dark-mode {
     background-color: #121212;
     color: #ffffff;
+}
+
+.dark-mode .cart-detail {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.dark-mode .cart-item {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    border-color: #444444;
+}
+
+.dark-mode .btn-clear-cart {
+    background-color: #e60023;
+}
+
+.dark-mode .btn-clear-cart:hover {
+    background-color: #c4001e;
+}
+
+.dark-mode a {
+    color: #ffffff;
+}
+
+.dark-mode a:hover {
+    background-color: #45a049;
 }

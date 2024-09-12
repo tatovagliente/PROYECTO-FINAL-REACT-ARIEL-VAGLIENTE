@@ -81,7 +81,7 @@ const Checkout = () => {
 
   return (
     <div>
-      <h2>Ingresa tu datos</h2>
+      <h2>TU CARRITO:</h2>
       <div>
       {cart.map((product, index) => (
         <div key={product.product.id || index}>
@@ -97,6 +97,7 @@ const Checkout = () => {
         
 ))}
       </div>
+      <h2>Ingresa tu datos</h2>
       <form onSubmit={handleForm}>
   <div>
     <label htmlFor='nombre'>Nombre:</label>
