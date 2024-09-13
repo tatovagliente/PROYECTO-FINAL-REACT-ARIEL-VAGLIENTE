@@ -1,7 +1,7 @@
 import {useState, useContext} from 'react';
 import { CartContext } from '../../context/CartContext/CartProvider';
 import { collection,addDoc,updateDoc,doc,getDoc, getFirestore } from 'firebase/firestore';
-
+import './Checkout.css';
 
 const Checkout = () => {
   const {cart, getTotal, getTotalProducts, clearCart} = useContext(CartContext);
@@ -15,7 +15,9 @@ const Checkout = () => {
   const [orderId, setOrderId] = useState('');
 
 
-
+  const totalAPagar = () => {
+    return cart.reduce((acc, product) => acc + product.product.precio * product.quantity, 0);
+  };
 
 
   const handleForm = (e) =>{
@@ -79,27 +81,33 @@ const Checkout = () => {
 };
 
 
-  return (
+return (
+  <div className="checkout-container">
+    <h2>TU CARRITO:</h2>
     <div>
-      <h2>TU CARRITO:</h2>
-      <div>
       {cart.map((product, index) => (
-        <div key={product.product.id || index}>
-          <p>{product.product.nombre}</p>
-          <img 
-            src={product.product.imagen} 
-            alt={product.product.nombre}   
-            style={{ width: '100px', height: 'auto' }}
+        <div key={product.product.id || index} className="product-item">
+          <img
+            src={product.product.imagen}
+            alt={product.product.nombre}
+            className="product-image"
           />
-          <p>{product.product.precio}</p>
-          <hr />
+          <div className="product-details">
+            <p className="product-name">PRODUCTO: {product.product.nombre}</p>
+            <p className="product-price">PRECIO POR UNIDAD: ${product.product.precio}</p>
+            <p className="subtotal">
+              SUBTOTAL: ${(product.product.precio * product.quantity)}
+            </p>
+          </div>
         </div>
-        
-))}
+      ))}
+
+        <h3 className="total-pagar">TOTAL A PAGAR: ${totalAPagar()}</h3>
+
       </div>
       <h2>Ingresa tu datos</h2>
       <form onSubmit={handleForm}>
-  <div>
+      <div className="form-group">
     <label htmlFor='nombre'>Nombre:</label>
     <input
       type="text"
@@ -109,7 +117,7 @@ const Checkout = () => {
     />
   </div>
 
-  <div>
+  <div className="form-group">
     <label htmlFor='apellido'>Apellido:</label>
     <input
       type="text"
@@ -119,7 +127,7 @@ const Checkout = () => {
     />
   </div>
 
-  <div>
+  <div className="form-group">
     <label htmlFor='telefono'>Telefono:</label>
     <input
       type="number"
@@ -129,7 +137,7 @@ const Checkout = () => {
     />
   </div>
 
-  <div>
+  <div className="form-group">
     <label htmlFor='email'>Email:</label>
     <input
       type="email"
@@ -139,7 +147,7 @@ const Checkout = () => {
     />
   </div>
 
-  <div>
+  <div className="form-group">
     <label htmlFor='emailConfirmacion'>Email de Confirmación:</label>
     <input
       type="email"
@@ -151,9 +159,9 @@ const Checkout = () => {
 
   <button type="submit">FINALIZAR COMPRA</button>
 
-  {error && <p>{error}</p>}
+  {error && <p className="error-message">{error}</p>}
   {orderId && (
-    <p>Gracias por su Compra! Tu numero de orden es: {orderId}{""}</p>
+    <p className="success-message">Gracias por su Compra! Tu numero de orden es: {orderId}{""}</p>
   )}
 </form>
     </div>
