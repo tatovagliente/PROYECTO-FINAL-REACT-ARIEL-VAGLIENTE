@@ -22,7 +22,7 @@ const CartDetail = ({cart}) => {
         <img src={item.product.imagen} alt={item.product.nombre} />
               <div className="cart-item-details">
                   <p>CANTIDAD: {item.quantity}</p>
-                  <p>PRECIO: ${item.product.precio}</p>
+                  <p>PRECIO POR PRODUCTO: ${item.product.precio}</p>
               </div>
         
         <button onClick={()=> removeItem(item.product.id)}>ELIMINAR</button>

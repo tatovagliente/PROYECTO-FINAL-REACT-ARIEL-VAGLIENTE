@@ -40,12 +40,12 @@ Este es un proyecto de e-commerce para una tienda de ropa masculina llamada "CER
     - Añade tus credenciales a un archivo `.env` en la raíz del proyecto.
 
     ```.env
-      apiKey: "AIzaSyDraHzVeUsyDdEYHIKX508ikf00lhzb4G8",
-      authDomain: "cercenasco-tienda-moda.firebaseapp.com",
-      projectId: "cercenasco-tienda-moda",
-      storageBucket: "cercenasco-tienda-moda.appspot.com",
-      messagingSenderId: "864537122540",
-      appId: "1:864537122540:web:dfc4fd60c8aaa6577637c9"
+VITE_FIREBASE_API_KEY = AIzaSyDraHzVeUsyDdEYHIKX508ikf00lhzb4G8
+VITE_FIREBASE_AUTH_DOMAIN = cercenasco-tienda-moda.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID = cercenasco-tienda-moda
+VITE_FIREBASE_STORAGE_BUCKET = cercenasco-tienda-moda.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID = 864537122540
+VITE_FIREBASE_APP_ID = 1:864537122540:web:dfc4fd60c8aaa6577637c9
 ;
     ```
 
@@ -55,7 +55,7 @@ Este es un proyecto de e-commerce para una tienda de ropa masculina llamada "CER
     npm run dev
     ```
 
-    La aplicación estará disponible en [http://localhost:3000](http://localhost:3000).
+    La aplicación estará disponible en el localhost asignado por tu computadora.
 
 ## Estructura del Proyecto
 

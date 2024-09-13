@@ -102,7 +102,10 @@ return (
         </div>
       ))}
 
+      <div>
         <h3 className="total-pagar">TOTAL A PAGAR: ${totalAPagar()}</h3>
+        </div>
+
 
       </div>
       <h2>Ingresa tu datos</h2>
